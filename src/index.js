@@ -5,6 +5,7 @@ const connectdb=require('./db');
 const userRouter = require("../routes/user"); 
 const itineraryRouter = require("../routes/itinerary"); 
 const app = express();
+app.use(cors());
 
 const corsOptions = {
     origin: ["gotravel-wine.vercel.app"],
