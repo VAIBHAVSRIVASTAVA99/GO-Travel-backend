@@ -7,7 +7,7 @@ const itineraryRouter = require("../routes/itinerary");
 const app = express();
 
 const corsOptions = {
-    origin: "*",
+    origin: "gotravel-wine.vercel.app",
     methods: "POST,GET,PUT,DELETE,PATCH,HEAD",
     credentials: true,
 };
