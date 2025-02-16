@@ -2,7 +2,6 @@ const express = require("express");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const { FirecrawlApp } = require("@mendable/firecrawl-js");
 require("dotenv").config();
-app.use(cors());
 const itineraryRouter = express.Router();
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 
