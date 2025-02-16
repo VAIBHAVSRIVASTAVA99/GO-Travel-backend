@@ -2,7 +2,7 @@ const express = require("express");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const { FirecrawlApp } = require("@mendable/firecrawl-js");
 require("dotenv").config();
-
+app.use(cors());
 const itineraryRouter = express.Router();
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 
@@ -49,10 +49,7 @@ itineraryRouter.post("/generate-itinerary", async (req, res) => {
         
         const itineraryArray = itineraryText.split("\n").filter(line => line.trim() !== "");
 
-        
-        const extraInfo = await scrapeWebsite(`https://www.google.com/search?q=travel+guide+${location}`);
-
-        res.json({ itinerary: itineraryArray, extraInfo });
+        res.json({ itinerary: itineraryArray});
 
     } catch (err) {
         console.error("Error generating itinerary:", err.message);
